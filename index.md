@@ -1,9 +1,10 @@
 ---
 title: "GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement"
-description: "Fast & lightweight arbitrary-scale super-resolution with 2D Gaussian splatting"
+description: "Fast & lightweight arbitrary-scale super-resolution via 2D Gaussian rendering"
 ---
 
-# GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement (Brings Fast and Lightweight Arbitrary Super-Resolution)
+# GRAPE (Gaussian Rendering for Accelerated Pixel Enhancement)  
+### Brings Fast and Lightweight Arbitrary Super-Resolution
 
 <div style="margin-top:8px; font-size: 1.05em;">
   <strong>Jung In Jang</strong><sup>1</sup> &nbsp; · &nbsp;
@@ -19,81 +20,79 @@ description: "Fast & lightweight arbitrary-scale super-resolution with 2D Gaussi
   <a class="btn btn-outline-primary" href="https://youtu.be/LwlF6hZ54ng?si=3xU5rA7_6TXuJssU" target="_blank" rel="noopener">Video (YouTube)</a>
 </div>
 
-> **Note**
-> - `Paper (temp)` 버튼은 현재 `static/paper.pdf`를 가리키도록 해뒀어. 나중에 PDF를 그 경로에 넣거나 링크를 arXiv로 바꾸면 돼.
-> - YouTube 영상은 위 링크로 연결되고, 아래 섹션에는 페이지 내 임베드도 포함했어.
-
 ---
 
-## Teaser (Temporary)
+## Teaser
 
 ![Teaser](static/image/teaser.png)
 
 <p style="margin-top:6px; color:#666;">
-  (Temporary teaser image) Replace <code>static/image/teaser.png</code> with your teaser.
+  Replace <code>static/image/teaser.png</code> if you want a different teaser.
 </p>
 
 ---
 
 ## Abstract
 
-We present <strong>GRAPE (Gaussian Rendering for Accelerated Pixel Enhancement)</strong>, a fast, lightweight method for
-<strong>arbitrary-scale super-resolution (ASSR)</strong> based on <strong>2D Gaussian splatting</strong>.
-GRAPE predicts anisotropic Gaussian parameters (RGB, rotation, scale, offset) with a compact point-wise layer,
-and renders the high-resolution image in <strong>one pass</strong> via a differentiable rasterizer.
+GRAPE enables **arbitrary-scale super-resolution (ASSR)** by predicting **2D anisotropic Gaussians** on an image-space grid and **rasterizing them efficiently**.  
+By replacing heavy decoders with a **single-layer Gaussian head** and using a **GPU-friendly splatting renderer**, GRAPE supports fast, cache-friendly, and highly parallel inference at arbitrary output resolutions.  
+With **1.56M parameters** and **1.10 GB** peak GPU memory, GRAPE runs at **69.33 FPS on Urban100 (985×798)**. :contentReference[oaicite:1]{index=1}
 
 ---
 
 ## Method
 
-### Overview
+### From LR Features to HR Rendering with Gaussian Primitives
 
 GRAPE is an end-to-end differentiable pipeline:
 
-1. <strong>Encoder</strong> extracts LR features.  
-2. <strong>Gaussian Head (1×1 point-wise)</strong> maps features to anisotropic 2D Gaussian parameters (RGB / rotation / scale / offset).  
-3. <strong>2D Rasterizer</strong> renders the SR image efficiently in a single pass.
+1. **Encoder** extracts LR features  
+2. **Reshape + Parameter Mapping** converts features to a regular grid representation  
+3. **Gaussian Head (point-wise)** predicts anisotropic 2D Gaussian parameters (**RGB / Rotation / Scale / Offset**)  
+4. **2D Rasterizer** composites Gaussians to render the HR image in one pass :contentReference[oaicite:2]{index=2}
 
-![Method Overview (Temporary)](static/image/method.png)
+![Method Overview](static/image/method.png)
 
-<p style="margin-top:6px; color:#666;">
-  (Temporary) Replace <code>static/image/method.png</code> with your method overview figure.
-</p>
+---
+
+## 2D Anisotropic Gaussian Splatting
+
+Oriented elliptical footprints naturally align with edges and directional textures, improving detail reconstruction.  
+Below are visualizations of anisotropic parameters (e.g., scale/rotation-related maps). :contentReference[oaicite:3]{index=3}
+
+![Anisotropic Visualization](static/image/ani.png)
 
 ---
 
 ## Results
 
-### Quantitative (Temporary)
+### Qualitative Results (Urban100 examples)
 
-![Quantitative Table (Temporary)](static/image/table.png)
-
-<p style="margin-top:6px; color:#666;">
-  (Temporary) Replace <code>static/image/table.png</code> with your quantitative results table/plot.
-</p>
-
-### Speed / Efficiency Highlights (Temporary)
-
-- <strong>Params:</strong> 1.56M  
-- <strong>Memory:</strong> 1.10 GB  
-- <strong>Speed:</strong> 69.33 FPS (Urban100, ×4, avg 985×798)
+![Qualitative](static/image/qual.png)
 
 <p style="margin-top:6px; color:#666;">
-  (Temporary) Replace these bullets with the exact final numbers you want to show.
+  (Figure file: <code>static/image/qual.png</code>)
 </p>
 
-### Qualitative (Temporary)
+---
 
-<div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:12px;">
-  <img src="static/image/qual_1.png" alt="Qualitative 1" style="width:100%; border-radius:12px;" />
-  <img src="static/image/qual_2.png" alt="Qualitative 2" style="width:100%; border-radius:12px;" />
-  <img src="static/image/qual_3.png" alt="Qualitative 3" style="width:100%; border-radius:12px;" />
-  <img src="static/image/qual_4.png" alt="Qualitative 4" style="width:100%; border-radius:12px;" />
-</div>
+### Quantitative Results
 
-<p style="margin-top:6px; color:#666;">
-  (Temporary) Replace <code>qual_1.png ~ qual_4.png</code> with qualitative comparison images.
-</p>
+아래 표들은 포스터에 포함된 정량 결과 테이블 이미지들(파일명 기준)이야. :contentReference[oaicite:4]{index=4}
+
+![Table 1](static/image/table1.png)
+
+![Table 2](static/image/table2.png)
+
+![Table 3](static/image/table3.png)
+
+---
+
+### Stage-wise Peak GPU Memory & Latency
+
+GRAPE는 full-HD 프레임을 **40.88 ms**에 재구성하며, encoder가 전체 런타임의 **85.1%**를 차지하고 나머지 단계는 오버헤드가 작습니다. 또한 peak memory는 **2.12 GB 이하**로 유지됩니다. :contentReference[oaicite:5]{index=5}
+
+![Peak GPU Memory & Latency](static/image/peak_gpu.png)
 
 ---
 
@@ -122,5 +121,7 @@ GRAPE is an end-to-end differentiable pipeline:
 }
 
 ---
+
 ## Acknowledgements
 This project page is based on an academic project-page template and customized for GRAPE.
+
