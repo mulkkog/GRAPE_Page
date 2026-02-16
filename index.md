@@ -9,13 +9,9 @@ affiliations:
   ¹Korea University, Republic of Korea
 paper: static/paper.pdf
 video: https://youtu.be/LwlF6hZ54ng
-code: https://github.com/mulkkog/GRAPE
-data: ""
+code: https://github.com/mulkkog/GRAPE 
 ---
-
-> Note: This page is based on the Jekyll project website template: [Github link](https://github.com/shunzh/project_website).\
-> The following content is adapted from the GRAPE project description. Figures are manually added.
-
+ 
 <!-- Using HTML to center the abstract -->
 <div class="columns is-centered has-text-centered">
   <div class="column is-four-fifths">
