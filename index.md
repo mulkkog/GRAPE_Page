@@ -25,12 +25,7 @@ With only <b>1.56M parameters</b> and <b>1.10 GB peak GPU memory</b>, GRAPE achi
     </div>
   </div>
 </div>
-
----
-
-## Teaser
-![Teaser](/static/image/teaser.png)
-
+ 
 ---
 
 ## Method
