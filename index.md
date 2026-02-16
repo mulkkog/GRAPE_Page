@@ -118,5 +118,5 @@ Click the image below to watch the demo video:
 
 ## Acknowledgements
 
-This project page is adapted from an academic project-page template and customized for GRAPE.  
-We thank Korea University for institutional support and acknowledge the open-source community for providing valuable tools and resources.
+This project page is adapted from the original project website template by:
+https://github.com/shunzh/project_website and customized for GRAPE.   
