@@ -118,3 +118,7 @@ GRAPE is an end-to-end differentiable pipeline:
   journal = {arXiv preprint arXiv:XXXX.XXXXX},
   year    = {2025}
 }
+
+## Acknowledgements
+
+This project page is based on an academic project-page template and customized for GRAPE.
