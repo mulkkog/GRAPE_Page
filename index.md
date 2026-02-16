@@ -3,8 +3,7 @@ title: "GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement"
 description: "Fast & lightweight arbitrary-scale super-resolution via 2D Gaussian rendering"
 ---
 
-# GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement
-
+# GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement  
 ### Fast and Lightweight Arbitrary-Scale Super-Resolution
 
 **Jung In Jang¹ · Kyong Hwan Jin¹**  
@@ -12,11 +11,11 @@ description: "Fast & lightweight arbitrary-scale super-resolution via 2D Gaussia
 
 ---
 
-## Links
-
-- 📄 [Paper (Temporary)](static/paper.pdf)
-- 💻 [Code (GitHub)](https://github.com/mulkkog/GRAPE)
-- 🎥 [Video (YouTube)](https://youtu.be/LwlF6hZ54ng)
+<div style="margin-top:14px; display:flex; gap:10px; flex-wrap: wrap;">
+  <a href="static/paper.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red"></a>
+  <a href="https://github.com/mulkkog/GRAPE"><img src="https://img.shields.io/badge/Code-GitHub-black"></a>
+  <a href="https://youtu.be/LwlF6hZ54ng"><img src="https://img.shields.io/badge/Video-YouTube-blue"></a>
+</div>
 
 ---
 
@@ -57,10 +56,9 @@ GRAPE is an end-to-end differentiable pipeline:
 
 ## 2D Anisotropic Gaussian Splatting
 
-The use of oriented elliptical Gaussian footprints allows better alignment with edges and directional textures.  
-This improves structural fidelity and fine-detail reconstruction compared to isotropic representations.
+Oriented elliptical Gaussian footprints align naturally with edges and directional textures, improving structural fidelity and fine-detail reconstruction.
 
-Below are visualizations of learned anisotropic parameters (e.g., scale and rotation-related maps).
+Below are visualizations of learned anisotropic parameters such as scale and rotation-related maps.
 
 ![Anisotropic Visualization](static/image/ani.png)
 
