@@ -12,20 +12,15 @@ video: https://youtu.be/LwlF6hZ54ng
 code: https://github.com/mulkkog/GRAPE 
 ---
  
-<!-- Using HTML to center the abstract -->
-<div class="columns is-centered has-text-centered">
-  <div class="column is-four-fifths">
-    <h2>Abstract</h2>
-    <div class="content has-text-justified">
-GRAPE enables <b>arbitrary-scale super-resolution (ASSR)</b> by predicting <b>2D anisotropic Gaussian primitives</b> on an image-space grid and efficiently rasterizing them into high-resolution outputs.
 
-Instead of using heavy decoder architectures, GRAPE adopts a <b>single-layer Gaussian prediction head</b> combined with a <b>GPU-friendly splatting renderer</b>. This design enables fast, cache-efficient, and highly parallel inference at arbitrary output resolutions.
+## Abstract
 
-With only <b>1.56M parameters</b> and <b>1.10 GB peak GPU memory</b>, GRAPE achieves <b>69.33 FPS on Urban100 (985×798)</b> while maintaining high reconstruction fidelity.
-    </div>
-  </div>
-</div>
- 
+GRAPE enables **arbitrary-scale super-resolution (ASSR)** by predicting **2D anisotropic Gaussian primitives** on an image-space grid and efficiently rasterizing them into high-resolution outputs.
+
+Instead of using heavy decoder architectures, GRAPE adopts a **single-layer Gaussian prediction head** combined with a **GPU-friendly splatting renderer**. This design enables fast, cache-efficient, and highly parallel inference at arbitrary output resolutions.
+
+With only **1.56M parameters** and **1.10 GB peak GPU memory**, GRAPE achieves **69.33 FPS on Urban100 (985×798)** while maintaining high reconstruction fidelity.
+
 ---
 
 ## Method
@@ -76,12 +71,7 @@ Peak GPU memory usage remains below **2.12 GB**, demonstrating strong efficiency
 ![Peak GPU Memory and Latency](/static/image/peak_gpu.png)
 
 ---
-
-## Video
-[![GRAPE Demo Video](https://img.youtube.com/vi/LwlF6hZ54ng/maxresdefault.jpg)](https://youtu.be/LwlF6hZ54ng)
-
----
-
+ 
 ## Citation
 ```bibtex
 @article{grape2025,
@@ -91,8 +81,6 @@ Peak GPU memory usage remains below **2.12 GB**, demonstrating strong efficiency
   year    = {2025}
 }
 ```
-
----
 
 ## Acknowledgements
 
