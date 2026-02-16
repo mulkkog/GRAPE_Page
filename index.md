@@ -1,5 +1,4 @@
 ---
-layout: page
 title: "GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement"
 description: "Fast & lightweight arbitrary-scale super-resolution with 2D Gaussian splatting"
 ---
@@ -22,7 +21,7 @@ description: "Fast & lightweight arbitrary-scale super-resolution with 2D Gaussi
 
 > **Note**
 > - `Paper (temp)` 버튼은 현재 `static/paper.pdf`를 가리키도록 해뒀어. 나중에 PDF를 그 경로에 넣거나 링크를 arXiv로 바꾸면 돼.
-> - YouTube 영상은 위 링크로 연결되도록 설정 완료.
+> - YouTube 영상은 위 링크로 연결되고, 아래 섹션에는 페이지 내 임베드도 포함했어.
 
 ---
 
@@ -38,7 +37,10 @@ description: "Fast & lightweight arbitrary-scale super-resolution with 2D Gaussi
 
 ## Abstract
 
-We present **GRAPE (Gaussian Rendering for Accelerated Pixel Enhancement)**, a fast, lightweight method for **arbitrary-scale super-resolution (ASSR)** based on **2D Gaussian splatting**. GRAPE predicts anisotropic Gaussian parameters (RGB, rotation, scale, offset) with a compact point-wise layer, and renders the high-resolution image in **one pass** via a differentiable rasterizer. The full model has **1.56M parameters**, uses **1.10GB** GPU memory, and reaches **69.33 FPS on Urban100 at ×4** (average 985×798), reporting over **315×** speed-up compared to GSASR while maintaining competitive quality.
+We present <strong>GRAPE (Gaussian Rendering for Accelerated Pixel Enhancement)</strong>, a fast, lightweight method for
+<strong>arbitrary-scale super-resolution (ASSR)</strong> based on <strong>2D Gaussian splatting</strong>.
+GRAPE predicts anisotropic Gaussian parameters (RGB, rotation, scale, offset) with a compact point-wise layer,
+and renders the high-resolution image in <strong>one pass</strong> via a differentiable rasterizer.
 
 ---
 
@@ -48,9 +50,9 @@ We present **GRAPE (Gaussian Rendering for Accelerated Pixel Enhancement)**, a f
 
 GRAPE is an end-to-end differentiable pipeline:
 
-1. **Encoder** extracts LR features.  
-2. **Gaussian Head (1×1 point-wise)** maps features to anisotropic 2D Gaussian parameters (RGB / rotation / scale / offset).  
-3. **2D Rasterizer** renders the SR image efficiently in a single pass.
+1. <strong>Encoder</strong> extracts LR features.  
+2. <strong>Gaussian Head (1×1 point-wise)</strong> maps features to anisotropic 2D Gaussian parameters (RGB / rotation / scale / offset).  
+3. <strong>2D Rasterizer</strong> renders the SR image efficiently in a single pass.
 
 ![Method Overview (Temporary)](static/image/method.png)
 
@@ -70,15 +72,15 @@ GRAPE is an end-to-end differentiable pipeline:
   (Temporary) Replace <code>static/image/table.png</code> with your quantitative results table/plot.
 </p>
 
-### Speed / Efficiency Highlights
+### Speed / Efficiency Highlights (Temporary)
 
-- **Params:** 1.56M  
-- **Memory:** 1.10 GB  
-- **Speed:** 69.33 FPS (Urban100, ×4, avg 985×798)
+- <strong>Params:</strong> 1.56M  
+- <strong>Memory:</strong> 1.10 GB  
+- <strong>Speed:</strong> 69.33 FPS (Urban100, ×4, avg 985×798)
 
-> Replace these bullets with your final reported numbers if you want the project page to exactly match the paper.
-
----
+<p style="margin-top:6px; color:#666;">
+  (Temporary) Replace these bullets with the exact final numbers you want to show.
+</p>
 
 ### Qualitative (Temporary)
 
@@ -118,12 +120,3 @@ GRAPE is an end-to-end differentiable pipeline:
   journal = {arXiv preprint arXiv:XXXX.XXXXX},
   year    = {2025}
 }
-
----
-
-## Acknowledgements
-This project page is based on an academic project-page template and customized for GRAPE.
-
- 
-
- 
