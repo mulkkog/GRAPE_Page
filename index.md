@@ -2,7 +2,8 @@
 layout: project_page
 permalink: /
 
-title: "GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement"
+title: "GRAPE(Gaussian Rendering for Accelerated Pixel Enhancement) Brings Fast
+and Lightweight Arbitrary Super-Resolution"
 authors:
   Jung In Jang¹ · Kyong Hwan Jin¹
 affiliations:
