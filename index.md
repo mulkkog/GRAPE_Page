@@ -1,85 +1,120 @@
 ---
-layout: project_page
-permalink: /
-
-title: On Computable Numbers, with an Application to the Entscheidungsproblem
-authors:
-    A. M. Turing
-affiliations:
-    King's College, Cambridge
-paper: https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf
-video: https://www.youtube.com/results?search_query=turing+machine
-code: https://github.com/topics/turing-machines
-data: https://huggingface.co/docs/datasets
+layout: page
+title: "GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement"
+description: "Fast & lightweight arbitrary-scale super-resolution with 2D Gaussian splatting"
 ---
 
-<!-- Using HTML to center the abstract -->
-<div class="columns is-centered has-text-centered">
-    <div class="column is-four-fifths">
-        <h2>Abstract</h2>
-        <div class="content has-text-justified">
-The "computable" numbers may be described briefly as the real
-numbers whose expressions as a decimal are calculable by finite means.
-Although the subject of this paper is ostensibly the computable numbers.
-it is almost equally easy to define and investigate computable functions
-of an integral variable or a real or computable variable, computable
-predicates, and so forth. The fundamental problems involved are,
-however, the same in each case, and I have chosen the computable numbers
-for explicit treatment as involving the least cumbrous technique. I hope
-shortly to give an account of the relations of the computable numbers,
-functions, and so forth to one another. This will include a development
-of the theory of functions of a real variable expressed in terms of computable
-numbers. According to my definition, a number is computable
-if its decimal can be written down by a machine...
-        </div>
-    </div>
+# GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement (Brings Fast and Lightweight Arbitrary Super-Resolution)
+
+<div style="margin-top:8px; font-size: 1.05em;">
+  <strong>Jung In Jang</strong><sup>1</sup> &nbsp; · &nbsp;
+  <strong>Kyong Hwan Jin</strong><sup>1</sup>
+</div>
+<div style="margin-top:4px; color:#666;">
+  <sup>1</sup>Korea University, Republic of Korea
+</div>
+
+<div style="margin-top:14px; display:flex; gap:10px; flex-wrap: wrap;">
+  <a class="btn btn-primary" href="static/paper.pdf" target="_blank" rel="noopener">Paper (temp)</a>
+  <a class="btn btn-outline-primary" href="https://github.com/mulkkog/GRAPE" target="_blank" rel="noopener">Code (GitHub)</a>
+  <a class="btn btn-outline-primary" href="https://youtu.be/LwlF6hZ54ng?si=3xU5rA7_6TXuJssU" target="_blank" rel="noopener">Video (YouTube)</a>
+</div>
+
+> **Note**
+> - `Paper (temp)` 버튼은 현재 `static/paper.pdf`를 가리키도록 해뒀어. 나중에 PDF를 그 경로에 넣거나 링크를 arXiv로 바꾸면 돼.
+> - YouTube 영상은 위 링크로 연결되도록 설정 완료.
+
+---
+
+## Teaser (Temporary)
+
+![Teaser](static/image/teaser.png)
+
+<p style="margin-top:6px; color:#666;">
+  (Temporary teaser image) Replace <code>static/image/teaser.png</code> with your teaser.
+</p>
+
+---
+
+## Abstract
+
+We present **GRAPE (Gaussian Rendering for Accelerated Pixel Enhancement)**, a fast, lightweight method for **arbitrary-scale super-resolution (ASSR)** based on **2D Gaussian splatting**. GRAPE predicts anisotropic Gaussian parameters (RGB, rotation, scale, offset) with a compact point-wise layer, and renders the high-resolution image in **one pass** via a differentiable rasterizer. The full model has **1.56M parameters**, uses **1.10GB** GPU memory, and reaches **69.33 FPS on Urban100 at ×4** (average 985×798), reporting over **315×** speed-up compared to GSASR while maintaining competitive quality.
+
+---
+
+## Method
+
+### Overview
+
+GRAPE is an end-to-end differentiable pipeline:
+
+1. **Encoder** extracts LR features.  
+2. **Gaussian Head (1×1 point-wise)** maps features to anisotropic 2D Gaussian parameters (RGB / rotation / scale / offset).  
+3. **2D Rasterizer** renders the SR image efficiently in a single pass.
+
+![Method Overview (Temporary)](static/image/method.png)
+
+<p style="margin-top:6px; color:#666;">
+  (Temporary) Replace <code>static/image/method.png</code> with your method overview figure.
+</p>
+
+---
+
+## Results
+
+### Quantitative (Temporary)
+
+![Quantitative Table (Temporary)](static/image/table.png)
+
+<p style="margin-top:6px; color:#666;">
+  (Temporary) Replace <code>static/image/table.png</code> with your quantitative results table/plot.
+</p>
+
+### Speed / Efficiency Highlights
+
+- **Params:** 1.56M  
+- **Memory:** 1.10 GB  
+- **Speed:** 69.33 FPS (Urban100, ×4, avg 985×798)
+
+> Replace these bullets with your final reported numbers if you want the project page to exactly match the paper.
+
+---
+
+### Qualitative (Temporary)
+
+<div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:12px;">
+  <img src="static/image/qual_1.png" alt="Qualitative 1" style="width:100%; border-radius:12px;" />
+  <img src="static/image/qual_2.png" alt="Qualitative 2" style="width:100%; border-radius:12px;" />
+  <img src="static/image/qual_3.png" alt="Qualitative 3" style="width:100%; border-radius:12px;" />
+  <img src="static/image/qual_4.png" alt="Qualitative 4" style="width:100%; border-radius:12px;" />
+</div>
+
+<p style="margin-top:6px; color:#666;">
+  (Temporary) Replace <code>qual_1.png ~ qual_4.png</code> with qualitative comparison images.
+</p>
+
+---
+
+## Video
+
+<div style="position:relative;padding-top:56.25%; margin-top:12px;">
+  <iframe
+    style="position:absolute;top:0;left:0;width:100%;height:100%; border:0;"
+    src="https://www.youtube.com/embed/LwlF6hZ54ng"
+    title="GRAPE Demo Video"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
 </div>
 
 ---
 
-> Note: This is an example of a Jekyll-based project website template: [Github link](https://github.com/shunzh/project_website).\
-> The following content is generated by ChatGPT. The figure is manually added.
+## BibTeX (Temporary)
 
-## Background
-The paper "On Computable Numbers, with an Application to the Entscheidungsproblem" was published by Alan Turing in 1936. In this groundbreaking paper, Turing introduced the concept of a universal computing machine, now known as the Turing machine.
-
-## Objective
-Turing's main objective in this paper was to investigate the notion of computability and its relation to the Entscheidungsproblem (the decision problem), which is concerned with determining whether a given mathematical statement is provable or not.
-
-
-## Key Ideas
-1. Turing first presented the concept of a "computable number," which refers to a number that can be computed by an algorithm or a definite step-by-step process.
-2. He introduced the notion of a Turing machine, an abstract computational device consisting of an infinite tape divided into cells and a read-write head. The machine can read and write symbols on the tape, move the head left or right, and transition between states based on a set of rules.
-3. Turing demonstrated that the set of computable numbers is enumerable, meaning it can be listed in a systematic way, even though it is not necessarily countable.
-4. He proved the existence of non-computable numbers, which cannot be computed by any Turing machine.
-5. Turing showed that the Entscheidungsproblem is undecidable, meaning there is no algorithm that can determine, for any given mathematical statement, whether it is provable or not.
-
-![Turing Machine](/static/image/Turing_machine.png)
-
-*Figure 1: A representation of a Turing Machine. Source: [Wiki](https://en.wikipedia.org/wiki/Turing_machine).*
-
-## Table: Comparison of Computable and Non-Computable Numbers
-
-| Computable Numbers | Non-Computable Numbers |
-|-------------------|-----------------------|
-| Rational numbers, e.g., 1/2, 3/4 | Transcendental numbers, e.g., π, e |
-| Algebraic numbers, e.g., √2, ∛3 | Non-algebraic numbers, e.g., √2 + √3 |
-| Numbers with finite decimal representations | Numbers with infinite, non-repeating decimal representations |
-
-He used the concept of a universal Turing machine to prove that the set of computable functions is recursively enumerable, meaning it can be listed by an algorithm.
-
-## Significance
-Turing's paper laid the foundation for the theory of computation and had a profound impact on the development of computer science. The Turing machine became a fundamental concept in theoretical computer science, serving as a theoretical model for studying the limits and capabilities of computation. Turing's work also influenced the development of programming languages, algorithms, and the design of modern computers.
-
-## Citation
-```
-@article{turing1936computable,
-  title={On computable numbers, with an application to the Entscheidungsproblem},
-  author={Turing, Alan Mathison},
-  journal={Journal of Mathematics},
-  volume={58},
-  number={345-363},
-  pages={5},
-  year={1936}
+```bibtex
+@article{grape2025,
+  title   = {GRAPE: Gaussian Rendering for Accelerated Pixel Enhancement},
+  author  = {Jang, Jung In and Jin, Kyong Hwan},
+  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  year    = {2025}
 }
-```
